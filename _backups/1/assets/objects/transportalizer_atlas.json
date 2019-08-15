@@ -1,0 +1,21 @@
+{
+    "frames": [
+        {
+            "filename": "transportalizer",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 132,
+                "h": 165
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Phaser3",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

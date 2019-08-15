@@ -1,0 +1,97 @@
+/*mobile by default*/
+    .grid {
+        display: grid;
+        justify-items: center;
+
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr 200px 1fr 1fr 1fr;
+            grid-template-areas:
+                "game"
+                "chat"
+                "Input"
+                "footer";
+        min-height: 0;  
+        min-width: 0; 
+    }
+
+/*desktop-only*/
+    @media only screen and (min-width: 600px) {
+        .grid {
+            display: grid;
+            justify-items: center;
+
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: 600px 1fr 1fr 1fr 1fr;
+                grid-template-areas:
+                    "chat game ."
+                    "Input . ."
+                    ".  . ."
+                    ".  desc ."
+                    "footer footer footer";
+            min-height: 0;  
+            min-width: 0; 
+        }
+    }
+    
+.chat {
+    grid-area: chat;
+    margin-left: 1em;
+    border-radius: 2em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.chat ul{
+    overflow: auto;
+    max-height: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.chat ul li{
+    padding-left: .2em;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+.chat ul li:nth-child(even){
+    background: #909090;
+
+}
+
+.chat ul li:nth-child(odd){
+    background: #707070;
+}
+
+#gameCanvas {
+    grid-area: game;
+    background-color:blue;
+    max-width: 100%;
+}
+
+#Input {
+    grid-area: Input;
+    
+}
+
+#chatInput {
+    color: red;
+    padding: .3em;
+}
+
+#usernameInput{
+    color: green;
+    padding: .3em;
+}
+
+footer {
+    grid-area: footer;
+} 
+
+    
+    
+   
+  
+        

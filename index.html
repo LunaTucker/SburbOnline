@@ -1,0 +1,73 @@
+<!doctype html> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html> 
+
+	<head>
+		<title> Homestuck.info </title>
+        <link href="main.css" rel="stylesheet" type="text/css"/>
+        
+        <!--//MISC INCLUDES-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.min.js"></script>
+        <!--//ENGINE INCLUDES//-->
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.19.0/dist/phaser.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <!--//SBURB INCLUDES//-->
+        <script src="js/main.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/maps.js"></script>
+        <script src="js/characters.js"></script>
+
+	</head>
+
+	<body>
+
+    
+    <div class = "grid">			
+    
+    
+            <div class = "chat">
+               <ul>
+                   <li>Welcome!</li>
+               </ul>
+            </div>
+            
+            
+            
+            <div id = "gameCanvas"></div>
+            <script src="js/sburb.js"></script>
+
+        <div id = "Input">
+
+            <form id = "chatInput">
+                <p>Chat:
+                <input id = "message" type="text" size="20">
+                <button type='button' form ="chat" onclick="sendChatMessage()">Send</button> </p>
+            </form>
+            
+            <form id = "usernameInput">
+                <p> Username:
+                <input id = "username" type="text" size="20"> 
+                <button type='button' form="username" onclick="updateUsername()">Update</button> </p>
+            </form>
+
+        </div>
+
+        <footer>Not Affiliated with <a href="https://www.homestuck.com/">Homestuck.com</a><br/>Contact: Skyplayer@homestuck.info</footer>
+                
+    </div>
+                
+                
+
+            <script type="text/javascript">
+
+            var chatDiv = $(".chat ul")[0];
+
+            //disables Enter key from resetting page
+        window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'){e.preventDefault();return false;}}},true);
+        </script>
+        
+	</body>
+
+</html>

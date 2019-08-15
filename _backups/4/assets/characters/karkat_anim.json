@@ -1,0 +1,184 @@
+{
+    "anims": [
+        {
+            "key": "kk_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "1"
+                }
+            ]
+        },
+        {
+            "key": "kk_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "4"
+                }
+            ]
+        },
+        {
+            "key": "kk_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "3"
+                }
+            ]
+        },
+        {
+            "key": "kk_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "2"
+                }
+            ]
+        },
+        {
+            "key": "kk_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "5"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "6"
+                }
+            ]
+        },
+        {
+            "key": "kk_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "10"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "9"
+                }
+            ]
+        },
+        {
+            "key": "kk_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "11"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "12"
+                }
+            ]
+        },
+        {
+            "key": "kk_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "8"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "7"
+                }
+            ]
+        },
+        {
+            "key": "kk_angry",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "14"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "13"
+                }
+            ]
+        },
+        {
+            "key": "kk_sleep",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "20"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "21"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "22"
+                }
+            ]
+        },
+        {
+            "key": "kk_left_angry",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "18"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "19"
+                }
+            ]
+        },
+        {
+            "key": "kk_right_angry",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "karkat",
+                    "frame": "16"
+                },
+                {
+                    "key": "karkat",
+                    "frame": "15"
+                }
+            ]
+        }
+    ]
+}
