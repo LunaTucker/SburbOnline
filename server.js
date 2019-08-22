@@ -5,22 +5,12 @@ var server = http.Server(app);
 var io = require('socket.io').listen(server);
 
 var string = require("string-sanitizer");
-
 var sanitizeHtml = require('sanitize-html');
-// Allow only a super restricted set of tags and attributes
 
 
 
 var players = {};
 
-var star = {
-  x: Math.floor(Math.random() * 700) + 50,
-  y: Math.floor(Math.random() * 500) + 50
-};
-var scores = {
-  blue: 0,
-  red: 0
-};
 
 
 app.use( '/programming/sburb2', express.static(__dirname + '/public'));
@@ -40,8 +30,7 @@ io.on('connection', function (socket) {
       playerId: socket.id,
       animation: "none",
       frame: "none",
-      username: "none",
-      team: (Math.floor(Math.random() * 2) == 0) ? 'red' : 'blue'
+      username: "none"
     };
     // send the players object to the new player
     socket.emit('currentPlayers', players);

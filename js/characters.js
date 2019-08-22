@@ -1,9 +1,9 @@
-//base character class 
 
+    //array to store playable characters in, used to build  Char. Select Screen
 var playableCharacters = []
 
-//captcha card class
-    class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
+    //base character class 
+class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
         constructor(scene, x, y, character) {
             
             let texture = character.name;
@@ -67,7 +67,6 @@ var playableCharacters = []
 //characters are stored as objects, they will be passed to the sburbCharacter as the properties when a new player chooses them
 
     //KARKAT//
-
 const karkat = {
     //name must match the atlas that was loaded
     name: "karkat",
@@ -93,27 +92,8 @@ const karkat = {
     //leave this out if you don't want your character in the main select menu (for special gamemodes, admin skins, etc.)
 playableCharacters.push(karkat);
 
-//TEREZI//
-const terezi = {
-    
-    name: "terezi",
-    color: "#008282",
-    
-    down_idle: "tz_down_idle",
-    right_idle: "tz_right_idle",
-    left_idle: "tz_left_idle",
-    up_idle: "tz_up_idle",
-    
-    down_walk: "tz_down_walk",
-    right_walk: "tz_right_walk",
-    left_walk: "tz_left_walk",
-    up_walk: "tz_up_walk"
-
-    
-}
-playableCharacters.push(terezi);
-
 //note to self: this is aradiabot from alterniabound. need unique names for openbound sprites later
+
 //ARADIA//
 const aradia = {
     
@@ -134,10 +114,92 @@ const aradia = {
 }
 playableCharacters.push(aradia);
 
+//TAVROS//
+const tavros = {
+    
+    name: "tavros",
+    color: "#a15000",
+    
+    down_idle: "tavros_down_idle",
+    right_idle: "tavros_right_idle",
+    left_idle: "tavros_left_idle",
+    up_idle: "tavros_up_idle",
+    
+    down_walk: "tavros_down_walk",
+    right_walk: "tavros_right_walk",
+    left_walk: "tavros_left_walk",
+    up_walk: "tavros_up_walk"
+
+    
+}
+playableCharacters.push(tavros);
+
+//SOLLUX//
+const sollux = {
+    
+    name: "sollux",
+    color: "#a15000",
+    
+    down_idle: "sollux_down_idle",
+    right_idle: "sollux_right_idle",
+    left_idle: "sollux_left_idle",
+    up_idle: "sollux_up_idle",
+    
+    down_walk: "sollux_down_walk",
+    right_walk: "sollux_right_walk",
+    left_walk: "sollux_left_walk",
+    up_walk: "sollux_up_walk"
+
+    
+}
+playableCharacters.push(sollux);
+
+//NEPETA//
+const nepeta = {
+    
+    name: "nepeta",
+    color: "#005682",
+    
+    down_idle: "nepeta_down_idle",
+    right_idle: "nepeta_right_idle",
+    left_idle: "nepeta_left_idle",
+    up_idle: "nepeta_up_idle",
+    
+    down_walk: "nepeta_down_walk",
+    right_walk: "nepeta_right_walk",
+    left_walk: "nepeta_left_walk",
+    up_walk: "nepeta_up_walk"
+
+    
+}
+playableCharacters.push(nepeta);
+
+//TEREZI//
+const terezi = {
+    
+    name: "terezi",
+    color: "#008282",
+    
+    down_idle: "tz_down_idle",
+    right_idle: "tz_right_idle",
+    left_idle: "tz_left_idle",
+    up_idle: "tz_up_idle",
+    
+    down_walk: "tz_down_walk",
+    right_walk: "tz_right_walk",
+    left_walk: "tz_left_walk",
+    up_walk: "tz_up_walk"
+
+    
+}
+playableCharacters.push(terezi);
+
+
+//VRISKA//
 const vriska = {
     
     name: "vriska",
-    color: "#a10000",
+    color: "#005682",
     
     down_idle: "vriska_down_idle",
     right_idle: "vriska_right_idle",
@@ -152,3 +214,4 @@ const vriska = {
     
 }
 playableCharacters.push(vriska);
+

@@ -103,7 +103,7 @@ function updateUsername (username) {
     username = DOMPurify.sanitize(username, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
 
        if (username.length < 20){
-        self.player.username.setText(username);       
+        self.player.username.setText("<" + username + ">");       
         self.socket.emit('usernameSend', {username});
        }else{
            clientMessage("Username too long!");
@@ -219,7 +219,7 @@ function addPlayer(self, playerInfo, collisionLayer) {
   //adjust the size of the hitbox
             self.player.setSize(self.player.width * 0.5, self.player.height * 0.25, true);
             self.player.body.setOffset(self.player.width * 0.25, self.player.height * 0.70);
-      
+
   //set camera to follow
             self.cameras.main.startFollow(self.player, true, 0.05, 0.05);  
   //default username

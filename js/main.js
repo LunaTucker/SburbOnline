@@ -52,18 +52,30 @@ this.load.on('complete', function () {
   progressBox.destroy();
 });
 
+  //load every character, each needs a Data json with the animations, a png witht the sprites, and a json atlas for the spritesheet
+    //the atlas name should match the characters name in character.js
     this.load.animation('karkatData', 'assets/characters/karkat_anim.json');
     this.load.atlas('karkat', 'assets/characters/karkat.png', 'assets/characters/karkat_atlas.json');
     
-    this.load.animation('tereziData', 'assets/characters/terezi_anim.json');
-    this.load.atlas('terezi', 'assets/characters/terezi.png', 'assets/characters/terezi_atlas.json');
-
     this.load.animation('aradiaData', 'assets/characters/aradia_anim.json');
     this.load.atlas('aradia', 'assets/characters/aradia.png', 'assets/characters/aradia_atlas.json');
-    
+
+    this.load.animation('tavrosData', 'assets/characters/tavros_anim.json');
+    this.load.atlas('tavros', 'assets/characters/tavros.png', 'assets/characters/tavros_atlas.json');
+
+    this.load.animation('solluxData', 'assets/characters/sollux_anim.json');
+    this.load.atlas('sollux', 'assets/characters/sollux.png', 'assets/characters/sollux_atlas.json');
+
     this.load.animation('vriskaData', 'assets/characters/vriska_anim.json');
     this.load.atlas('vriska', 'assets/characters/vriska.png', 'assets/characters/vriska_atlas.json');
-    
+ 
+    this.load.animation('nepetaData', 'assets/characters/nepeta_anim.json');
+    this.load.atlas('nepeta', 'assets/characters/nepeta.png', 'assets/characters/nepeta_atlas.json');
+
+    this.load.animation('tereziData', 'assets/characters/terezi_anim.json');
+    this.load.atlas('terezi', 'assets/characters/terezi.png', 'assets/characters/terezi_atlas.json');
+  
+
     this.load.image("tiles", "assets/maps/tiles.png");
     this.load.tilemapTiledJSON("collisionTest", "assets/maps/collisionTest.json");
     

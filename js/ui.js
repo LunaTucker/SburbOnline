@@ -23,16 +23,10 @@ var UI = new Phaser.Class({
     
     create: function(){
        uiScene = this;
-       let currentText = this.add.bitmapText(-1000, -1000, 'courier', '', 24).setTint(0x008282);
        
-       //FULLSCREEN
-       //let fullscreenButton = this.add.sprite(575, 50, "fullscreen").setInteractive();
-        
-       //fullscreenButton.on('pointerdown', function(){
-        //    currentScene.scale.toggleFullscreen();
-  // });
-  
-      //ARROWS
+       let currentText = this.add.bitmapText(-1000, -1000, 'courier', '', 24).setTint(0x008282);
+      
+       //ARROWS
       let rightArrow = this.add.sprite(160, 400, "rightArrow").setInteractive();
       let leftArrow = this.add.sprite(32, 400, "leftArrow").setInteractive();
       let upArrow = this.add.sprite(96, 336, "upArrow").setInteractive();
@@ -107,25 +101,38 @@ var UI = new Phaser.Class({
 })
 
 
-      function characterSelectMenu() {
-                    //CHARACTER Select
+function characterSelectMenu() {
+                //CHARACTER Select
+        //add a phaser container
           let characterSelect = uiScene.add.container(self.cameras.main.centerX, self.cameras.main.centerY);
+        //add a sprite for the window
           let characterSelectWindow = uiScene.add.sprite(0, 0, 'textbox');
-          
+        //add the window to the container
           characterSelect.add(characterSelectWindow);
-          
-          playableCharacters.forEach(function (character, i){
-              
-          let playableCharacter = uiScene.add.sprite(-200 + (i * 100),0, character.name).setInteractive().play(character.down_idle);
-                      
-                    playableCharacter.on('pointerdown', function() {
-                        self.player.changeCharacter(character);
-                        console.log("click");
-                        characterSelect.destroy();
-                    });
-            
-          characterSelect.add(playableCharacter);
-          
+        //add a group for the character buttons
+        csCharacters = uiScene.add.group();
+        //loop through every character we have loaded
+        playableCharacters.forEach(function (character, i){
+            //add a clickable sprite of the character that changes you to them
+            let playableCharacter = uiScene.add.sprite(0, 0, character.name).setInteractive().play(character.down_idle).setScale(.8)
+                        playableCharacter.on('pointerdown', function() {
+                            self.player.changeCharacter(character);
+                            characterSelect.destroy();
+                        });
+
+            //add the clickable sprite to the container and the group
+            csCharacters.add(playableCharacter);
+            characterSelect.add(playableCharacter);
           });
+
+          Phaser.Actions.GridAlign(csCharacters.getChildren(), {
+            width: 6,
+            height: 2,
+            cellWidth: 64,
+            cellHeight: 64,
+            x: characterSelectWindow.getTopLeft().x * .5,
+            y: characterSelectWindow.getTopLeft().y * .5
+        });
+
       }
       
