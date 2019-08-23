@@ -103,7 +103,9 @@ function updateUsername (username) {
     username = DOMPurify.sanitize(username, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
 
        if (username.length < 20){
-        self.player.username.setText("<" + username + ">");       
+        self.player.username.setText(username);   
+        self.player.username.setFill(self.player.color).setBackgroundColor("#dedede"); 
+  
         self.socket.emit('usernameSend', {username});
        }else{
            clientMessage("Username too long!");
@@ -200,18 +202,9 @@ function addPlayer(self, playerInfo, collisionLayer) {
                            //console.log(`grabbed point [${randomX}, ${randomY}]`);
    
    
-  if (playerInfo.team === 'blue') {
-      //self.player = self.physics.add.sprite(randomX, randomY, 'karkat').play('kk_down_idle');
-      //self.playerPrefix = "kk";
       
-      self.player = new sburbCharacter(self, randomX, randomY, karkat);
-      self.playerPrefix = "kk";
-      
-  } else {
-      self.player = new sburbCharacter(self, randomX, randomY, karkat);
-      self.playerPrefix = "kk";
-  }
-
+    self.player = new sburbCharacter(self, randomX, randomY, karkat);
+ 
   //set the collision
             self.player.setCollideWorldBounds(true);
             self.physics.add.collider(self.player, self.collisionLayer);
@@ -233,6 +226,7 @@ function addPlayer(self, playerInfo, collisionLayer) {
 function addOtherPlayers(self, playerInfo) {
     var otherPlayer
     otherPlayer = new sburbCharacter(self, playerInfo.x, playerInfo.y, karkat);
+    otherPlayer.player = karkat;
                             //console.log(`adding player at ${playerInfo.x},${playerInfo.y}`);
     otherPlayer.playerId = playerInfo.playerId;
     otherPlayer.username = self.add.text(playerInfo.x - 16, playerInfo.y - 80, "<" + "anon" + ">", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;

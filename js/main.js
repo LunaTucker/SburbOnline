@@ -42,7 +42,7 @@ loadingText.setOrigin(0.5, 0.5);
   });
             
 this.load.on('fileprogress', function (file) {
-   // console.log(file.src);
+    console.log(file.src);
 });
 
  //remove loading screen
@@ -66,15 +66,29 @@ this.load.on('complete', function () {
     this.load.animation('solluxData', 'assets/characters/sollux_anim.json');
     this.load.atlas('sollux', 'assets/characters/sollux.png', 'assets/characters/sollux_atlas.json');
 
-    this.load.animation('vriskaData', 'assets/characters/vriska_anim.json');
-    this.load.atlas('vriska', 'assets/characters/vriska.png', 'assets/characters/vriska_atlas.json');
- 
     this.load.animation('nepetaData', 'assets/characters/nepeta_anim.json');
     this.load.atlas('nepeta', 'assets/characters/nepeta.png', 'assets/characters/nepeta_atlas.json');
+
+    this.load.animation('kanayaData', 'assets/characters/kanaya_anim.json');
+    this.load.atlas('kanaya', 'assets/characters/kanaya.png', 'assets/characters/kanaya_atlas.json');
 
     this.load.animation('tereziData', 'assets/characters/terezi_anim.json');
     this.load.atlas('terezi', 'assets/characters/terezi.png', 'assets/characters/terezi_atlas.json');
   
+    this.load.animation('vriskaData', 'assets/characters/vriska_anim.json');
+    this.load.atlas('vriska', 'assets/characters/vriska.png', 'assets/characters/vriska_atlas.json');
+
+    this.load.animation('equiusData', 'assets/characters/equius_anim.json');
+    this.load.atlas('equius', 'assets/characters/equius.png', 'assets/characters/equius_atlas.json');
+
+    this.load.animation('gamzeeData', 'assets/characters/gamzee_anim.json');
+    this.load.atlas('gamzee', 'assets/characters/gamzee.png', 'assets/characters/gamzee_atlas.json');
+
+    this.load.animation('eridanData', 'assets/characters/eridan_anim.json');
+    this.load.atlas('eridan', 'assets/characters/eridan.png', 'assets/characters/eridan_atlas.json');
+
+    this.load.animation('feferiData', 'assets/characters/feferi_anim.json');
+    this.load.atlas('feferi', 'assets/characters/feferi.png', 'assets/characters/feferi_atlas.json');
 
     this.load.image("tiles", "assets/maps/tiles.png");
     this.load.tilemapTiledJSON("collisionTest", "assets/maps/collisionTest.json");
@@ -168,7 +182,7 @@ create: function() {
             otherPlayer.setRotation(playerInfo.rotation);
             otherPlayer.setPosition(playerInfo.x, playerInfo.y);
             //recieve the other player's current animation and frame
-            otherPlayer.play(playerInfo.animation.key, true, playerInfo.frame.frame); 
+            otherPlayer.play(playerInfo.animation.key, true); 
                        //move username
                if(otherPlayer.username != null) {
                     otherPlayer.username.setPosition(playerInfo.x - 16, playerInfo.y - 64);
@@ -219,6 +233,7 @@ this.socket.on('usernameRecieve', function(playerInfo){
     if (playerInfo.playerId === otherPlayer.playerId) {
           //recieve the other player's username
             otherPlayer.username.setText("<" + playerInfo.username + ">"); 
+            otherPlayer.username.setFill(otherPlayer.player.color).setBackgroundColor("#dedede"); 
       };
     });
   });
@@ -229,6 +244,8 @@ this.socket.on('usernameRecieve', function(playerInfo){
                 if (playerInfo.playerId === otherPlayer.playerId) {
                        
                        //console.log(`changing other player to ${character.name}`);
+                       otherPlayer.player = character;
+
                        otherPlayer.changeCharacter(character);
                     }
                 });

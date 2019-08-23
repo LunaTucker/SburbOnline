@@ -39,9 +39,12 @@ class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
         //changing characters
    changeCharacter(newCharacter){
        //swap out texture and animations
-        console.log(`changing ${this} to ${newCharacter.name}`);
-        console.log(newCharacter);
+        if(newCharacter.name == undefined){
+            newCharacter = newCharacter.character;
+        }
+
       
+
         this.setTexture(newCharacter.name);
        
         this.down_idle = newCharacter.down_idle;
@@ -54,6 +57,7 @@ class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
         this.left_walk = newCharacter.left_walk;
         this.up_walk = newCharacter.up_walk;
         
+        this.color = newCharacter.color;
         //this.play(this.down_idle);
 
    }
@@ -158,7 +162,7 @@ playableCharacters.push(sollux);
 const nepeta = {
     
     name: "nepeta",
-    color: "#005682",
+    color: "#416600",
     
     down_idle: "nepeta_down_idle",
     right_idle: "nepeta_right_idle",
@@ -173,6 +177,26 @@ const nepeta = {
     
 }
 playableCharacters.push(nepeta);
+
+//KANAYA//
+const kanaya = {
+    
+    name: "kanaya",
+    color: "#008141",
+    
+    down_idle: "kanaya_down_idle",
+    right_idle: "kanaya_right_idle",
+    left_idle: "kanaya_left_idle",
+    up_idle: "kanaya_up_idle",
+    
+    down_walk: "kanaya_down_walk",
+    right_walk: "kanaya_right_walk",
+    left_walk: "kanaya_left_walk",
+    up_walk: "kanaya_up_walk"
+
+    
+}
+playableCharacters.push(kanaya);
 
 //TEREZI//
 const terezi = {
@@ -215,3 +239,82 @@ const vriska = {
 }
 playableCharacters.push(vriska);
 
+//EQUIUS//
+const equius = {
+    
+    name: "equius",
+    color: "#000056",
+    
+    down_idle: "equius_down_idle",
+    right_idle: "equius_right_idle",
+    left_idle: "equius_left_idle",
+    up_idle: "equius_up_idle",
+    
+    down_walk: "equius_down_walk",
+    right_walk: "equius_right_walk",
+    left_walk: "equius_left_walk",
+    up_walk: "equius_up_walk"
+
+    
+}
+playableCharacters.push(equius);
+
+//GAMZEE//
+const gamzee = {
+    
+    name: "gamzee",
+    color: "#2b0057",
+    
+    down_idle: "gamzee_down_idle",
+    right_idle: "gamzee_right_idle",
+    left_idle: "gamzee_left_idle",
+    up_idle: "gamzee_up_idle",
+    
+    down_walk: "gamzee_down_walk",
+    right_walk: "gamzee_right_walk",
+    left_walk: "gamzee_left_walk",
+    up_walk: "gamzee_up_walk"
+
+    
+}
+playableCharacters.push(gamzee);
+
+//ERIDAN//
+const eridan = {
+    
+    name: "eridan",
+    color: "#6a006a",
+    
+    down_idle: "eridan_down_idle",
+    right_idle: "eridan_right_idle",
+    left_idle: "eridan_left_idle",
+    up_idle: "eridan_up_idle",
+    
+    down_walk: "eridan_down_walk",
+    right_walk: "eridan_right_walk",
+    left_walk: "eridan_left_walk",
+    up_walk: "eridan_up_walk"
+
+    
+}
+playableCharacters.push(eridan);
+
+//FEFERI//
+const feferi= {
+    
+    name: "feferi",
+    color: "#77003c",
+    
+    down_idle: "feferi_down_idle",
+    right_idle: "feferi_right_idle",
+    left_idle: "feferi_left_idle",
+    up_idle: "feferi_up_idle",
+    
+    down_walk: "feferi_down_walk",
+    right_walk: "feferi_right_walk",
+    left_walk: "feferi_left_walk",
+    up_walk: "feferi_up_walk"
+
+    
+}
+playableCharacters.push(feferi);

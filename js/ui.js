@@ -34,7 +34,7 @@ var UI = new Phaser.Class({
 
       
      //Character Select
-     characterSelectMenu();
+     //characterSelectMenu();
      
        let characterSelectButton = this.add.sprite(575, 50, "charSelectButton").setInteractive();
         
@@ -104,6 +104,8 @@ var UI = new Phaser.Class({
 function characterSelectMenu() {
                 //CHARACTER Select
         //add a phaser container
+        console.log(playableCharacters);
+        console.log(self.cameras);
           let characterSelect = uiScene.add.container(self.cameras.main.centerX, self.cameras.main.centerY);
         //add a sprite for the window
           let characterSelectWindow = uiScene.add.sprite(0, 0, 'textbox');
@@ -117,6 +119,7 @@ function characterSelectMenu() {
             let playableCharacter = uiScene.add.sprite(0, 0, character.name).setInteractive().play(character.down_idle).setScale(.8)
                         playableCharacter.on('pointerdown', function() {
                             self.player.changeCharacter(character);
+                            self.socket.emit('characterChange', {character});
                             characterSelect.destroy();
                         });
 
