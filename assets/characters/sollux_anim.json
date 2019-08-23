@@ -1,0 +1,148 @@
+{
+    "anims": [
+        {
+            "key": "sollux_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "sollux_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "sollux_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "sollux_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "sollux_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_down_walk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "sollux_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_up_walk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "sollux_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_left_walk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "sollux_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_right_walk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_right_walk2"
+                }
+            ]
+        },
+        {
+            "key": "sollux_left_talk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_left_talk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_left_talk2"
+                }
+            ]
+        },
+        {
+            "key": "sollux_right_talk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "sollux",
+                    "frame": "sollux_right_talk1"
+                },
+                {
+                    "key": "sollux",
+                    "frame": "sollux_right_talk2"
+                }
+            ]
+        }
+    ]
+}

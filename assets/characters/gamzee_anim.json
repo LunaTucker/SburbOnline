@@ -1,0 +1,148 @@
+{
+    "anims": [
+        {
+            "key": "gamzee_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_down_walk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_up_walk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_left_walk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_right_walk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_right_walk2"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_left_talk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_left_talk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_left_talk2"
+                }
+            ]
+        },
+        {
+            "key": "gamzee_right_talk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_right_talk1"
+                },
+                {
+                    "key": "gamzee",
+                    "frame": "gamzee_right_talk2"
+                }
+            ]
+        }
+    ]
+}
