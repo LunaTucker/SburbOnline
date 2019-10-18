@@ -61,33 +61,39 @@ var sanitizeHTML = function (str) {
     //send message only to self
 function clientMessage(message){
     $(".chat ul").append("<li>" + "SYSTEM: " + message + "</li>");
+        //scroll the chat down
+        chatDiv.scrollTop = chatDiv.scrollHeight;
 }
 //HTML Buttons
 
 function sendChatMessage (message) {
-   var message = document.getElementById("message").value;
-   var clientmessage;
-
-   if(message != null){
+    //message is sent from the server, chatmessage is used for the chatbar, gamemessage displays over your character
+    var message = document.getElementById("message").value;  
+  
+    if(message != null){
 
     //first sanitization 
     message = DOMPurify.sanitize(message, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
-    clientmessage = message;
-    clientmessage.replace(/(.{1,30})/g, '$1\n');
-    
+
+    console.log(message);
+    var chatmessage = message.replace(/(.{30})/g, "$1<br>");;
+        console.log(chatmessage);
+    var gamemessage = message.replace(/(.{30})/g, "$1\n");
+        console.log(gamemessage);
+
         //check the message length
-       if(message.length < 120){
+       if(message.length < 301){
 
         if(self.player.message == null){
             //add a text object if we don't have one
-            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, clientmessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;              
+            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;              
     }    else{
 
             //else just update the text object
-            self.player. tempmessage.setText(clientmessage);
+            self.player.message.setText(gamemessage);
        }
     //show the message in chatbox
-    $(".chat ul").append("<li>" + self.player.username.text + ": " + clientmessage + "</li>");
+    $(".chat ul").append("<li>" + self.player.username.text + ": " + chatmessage + "</li>");
 
     //scroll the chat down
     chatDiv.scrollTop = chatDiv.scrollHeight;
@@ -107,7 +113,7 @@ function updateUsername (username) {
     //first sanitization 
     username = DOMPurify.sanitize(username, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
 
-       if (username.length < 20){
+       if (username.length < 18){
         self.player.username.setText(username);   
         self.player.username.setFill(self.player.color).setBackgroundColor("#dedede"); 
   

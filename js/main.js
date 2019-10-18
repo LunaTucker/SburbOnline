@@ -206,26 +206,27 @@ create: function() {
   this.socket.on('messageRecieve', function (playerInfo) {
       self.otherPlayers.getChildren().forEach(function (otherPlayer) {
         if (playerInfo.playerId === otherPlayer.playerId) {
+            //message is sent from the server, chatmessage is used for the chatbar, gamemessage displays over your character
               var message = playerInfo.message;
-              console.log(playerInfo);
-              console.log(playerInfo.message);
-              console.log(message);
+              var chatmessage = message.replace(/(.{1,30})/g, '$1<br>');
+              var gamemessage = message.replace(/(.{1,30})/g, '$1\n');
+
                 if(otherPlayer.message == null){
-                   otherPlayer.message = self.add.text(playerInfo.x - 16, playerInfo.y - 85, message, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
+                   otherPlayer.message = self.add.text(playerInfo.x - 16, playerInfo.y - 85, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
                        
                 } else{
-                   otherPlayer.message.setText(message);
+                   otherPlayer.message.setText(gamemessage);
                 };
                 
                 //update the chatbox
 
                 if (playerInfo.username == undefined){
-                  $(".chat ul").append("<li>" + "anon" + ": " + message + "</li>");
+                  $(".chat ul").append("<li>" + "anon" + ": " + chatmessage + "</li>");
                     //scroll the chat down
                     chatDiv.scrollTop = chatDiv.scrollHeight;
 
                 }else {
-                  $(".chat ul").append("<li>" + playerInfo.username + ": " + message + "</li>");
+                  $(".chat ul").append("<li>" + playerInfo.username + ": " + chatmessage + "</li>");
                     //scroll the chat down
                     chatDiv.scrollTop = chatDiv.scrollHeight;
 
@@ -241,8 +242,12 @@ this.socket.on('usernameRecieve', function(playerInfo){
   self.otherPlayers.getChildren().forEach(function (otherPlayer){
     if (playerInfo.playerId === otherPlayer.playerId) {
           //recieve the other player's username
+
+          //make sure they didnt fool the clientside limit
+          if (playerInfo.username < 18){
             otherPlayer.username.setText("<" + playerInfo.username + ">"); 
             otherPlayer.username.setFill(otherPlayer.player.color).setBackgroundColor("#dedede"); 
+          };
       };
     });
   });

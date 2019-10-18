@@ -65,6 +65,7 @@ io.on('connection', function (socket) {
     socket.on('messageSend', function (message) {
       //console.log(message);
       // Allow only a super restricted set of tags and attributes
+      
       var cleanMessage = sanitizeHtml(message.message, {
               allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
               allowedAttributes: {
@@ -73,12 +74,13 @@ io.on('connection', function (socket) {
               allowedIframeHostnames: ['www.youtube.com']
             });
 
-      cleanMessage = cleanMessage.replace(/(.{1,30})/g, '$1<br/>')
-
-      players[socket.id].message = cleanMessage;
-      console.log(cleanMessage);
-      // emit a message to all players about the player that moved
-      socket.broadcast.emit('messageRecieve', players[socket.id]);
+            //make sure they didn't trick the client-side chat limit
+        if(cleanMessage.length < 301){
+          players[socket.id].message = cleanMessage;
+          console.log(cleanMessage);
+          // emit a message to all players about the player that moved
+          socket.broadcast.emit('messageRecieve', players[socket.id]);
+      }
     });
 
     socket.on('usernameSend', function (username) {
