@@ -86,7 +86,8 @@ function sendChatMessage (message) {
 
         if(self.player.message == null){
             //add a text object if we don't have one
-            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;              
+            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;        
+            self.player.message.depth = 10;      
     }    else{
 
             //else just update the text object
@@ -218,17 +219,19 @@ function addPlayer(self, playerInfo, collisionLayer) {
  
   //set the collision
             self.player.setCollideWorldBounds(true);
+            self.physics.add.collider(self.player, self.objectscollisionLayer);
             self.physics.add.collider(self.player, self.collisionLayer);
-            
   //adjust the size of the hitbox
             self.player.setSize(self.player.width * 0.5, self.player.height * 0.25, true);
             self.player.body.setOffset(self.player.width * 0.25, self.player.height * 0.70);
-
+  //set the depth
+            self.player.depth = 3;
   //set camera to follow
             self.cameras.main.startFollow(self.player, true, 0.05, 0.05);  
   //default username
             self.player.username = self.add.text(self.player.x - 16, self.player.y - 64, "anon", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });
-            
+            self.player.username.depth = 10;
+            self.player.username.setBackgroundColor("#dedede").setFill("gray");
 }
 
 //NETWORKING//
@@ -236,11 +239,40 @@ function addPlayer(self, playerInfo, collisionLayer) {
 //add other players
 function addOtherPlayers(self, playerInfo) {
     var otherPlayer
-    otherPlayer = new sburbCharacter(self, playerInfo.x, playerInfo.y, karkat);
-    otherPlayer.player = karkat;
-                            //console.log(`adding player at ${playerInfo.x},${playerInfo.y}`);
+    console.log(playerInfo);
+    otherPlayer = new sburbCharacter(self, playerInfo.x, playerInfo.y, playerInfo.character);
+    otherPlayer.player = playerInfo.character;
+
+    otherPlayer.setRotation(playerInfo.rotation);
+    otherPlayer.setPosition(playerInfo.x, playerInfo.y);
+
+    if(playerInfo.animation.key != undefined){
+        otherPlayer.play(playerInfo.animation.key, true); 
+    };
+
     otherPlayer.playerId = playerInfo.playerId;
-    otherPlayer.username = self.add.text(playerInfo.x - 16, playerInfo.y - 80, "<" + "anon" + ">", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
+
+    otherPlayer.depth = 3;
+
+    otherPlayer.username = self.add.text(playerInfo.x - 16, playerInfo.y - 80, "anon", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
+    otherPlayer.username.setText(playerInfo.username);
+    console.log(playerInfo); 
+
+    otherPlayer.username.setFill(playerInfo.character.color).setBackgroundColor("#dedede");
+
+    //deal with players who have already been networked
+    if(playerInfo.character.character != undefined){
+        otherPlayer.username.setFill(playerInfo.character.character.color).setBackgroundColor("#dedede");
+    } 
+    
+    //deal with newly joining players
+    if (playerInfo.character = "none"){
+        otherPlayer.username.setFill("gray");
+
+    }
+
+    otherPlayer.username.depth = 10;
+
     self.otherPlayers.add(otherPlayer);
 }
 

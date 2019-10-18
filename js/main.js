@@ -42,7 +42,7 @@ loadingText.setOrigin(0.5, 0.5);
   });
             
 this.load.on('fileprogress', function (file) {
-    console.log(file.src);
+    //console.log(file.src);
 });
 
  //remove loading screen
@@ -90,8 +90,8 @@ this.load.on('complete', function () {
     this.load.animation('feferiData', 'assets/characters/feferi_anim.json');
     this.load.atlas('feferi', 'assets/characters/feferi.png', 'assets/characters/feferi_atlas.json');
 
-    this.load.image("tiles2", "assets/maps/tiles2.png");
-    this.load.tilemapTiledJSON("map1", "assets/maps/map1.json");
+    this.load.image("tiles3", "assets/maps/tiles3.png");
+    this.load.tilemapTiledJSON("map2", "assets/maps/map2.json");
     
     
 },
@@ -110,26 +110,34 @@ create: function() {
     //MAP
     
             //load map and tileset
-    const map = self.make.tilemap({key:"map1"});
-    const tileset = map.addTilesetImage("tiles2", "tiles2");
+    const map = self.make.tilemap({key:"map2"});
+    const tileset = map.addTilesetImage("tiles3", "tiles3");
     
         //load layers
+        //players have depth of 3
             //ground layers
     const worldLayer = map.createStaticLayer("World", tileset, 0, 0);
-    const StaticObjectsLayer = map.createStaticLayer("StaticObjects", tileset, 0, 0);
+          worldLayer.depth = 0;
+          //static object layers
+    const StaticObjectsBelowLayer = map.createStaticLayer("StaticObjectsBelow", tileset, 0, 0);
+          StaticObjectsBelowLayer.depth = 1;
+    const StaticObjectsAboveLayer = map.createStaticLayer("StaticObjectsAbove", tileset, 0, 0);
+          StaticObjectsAboveLayer.depth = 4;
             //collision layers
     self.collisionLayer = map.createStaticLayer("Collision", tileset, 0, 0);
-            //object layers
+    console.log(self.collisionLayer);
+    
+    self.objectscollisionLayer = map.createStaticLayer("StaticObjectsCollision", tileset, 0, 0);
+    console.log(self.objectscollisionLayer);
+            //dynamic object layers
     var objectsLayer = map.getObjectLayer("Objects");
 
      
             //get objects, send to a function in maps.js
     Object.keys(objectsLayer.objects).forEach(function (key) {
 
-        console.log(objectsLayer.objects);
         var currentObject = objectsLayer.objects[key];
 
-        console.log(currentObject);
         addMapObject(currentObject, map, worldLayer);
 
     });
@@ -216,6 +224,7 @@ create: function() {
                        
                 } else{
                    otherPlayer.message.setText(gamemessage);
+                   otherPlayer.message.depth = 10;
                 };
                 
                 //update the chatbox
@@ -244,9 +253,11 @@ this.socket.on('usernameRecieve', function(playerInfo){
           //recieve the other player's username
 
           //make sure they didnt fool the clientside limit
-          if (playerInfo.username < 18){
-            otherPlayer.username.setText("<" + playerInfo.username + ">"); 
-            otherPlayer.username.setFill(otherPlayer.player.color).setBackgroundColor("#dedede"); 
+          if (playerInfo.username.length < 18){
+            otherPlayer.username.setText(playerInfo.username); 
+            console.log(playerInfo);
+            otherPlayer.username.setFill(playerInfo.character.character.color).setBackgroundColor("#dedede"); 
+            otherPlayer.username.depth = 10;
           };
       };
     });
