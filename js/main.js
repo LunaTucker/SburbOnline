@@ -90,8 +90,8 @@ this.load.on('complete', function () {
     this.load.animation('feferiData', 'assets/characters/feferi_anim.json');
     this.load.atlas('feferi', 'assets/characters/feferi.png', 'assets/characters/feferi_atlas.json');
 
-    this.load.image("tiles", "assets/maps/tiles.png");
-    this.load.tilemapTiledJSON("collisionTest", "assets/maps/collisionTest.json");
+    this.load.image("tiles2", "assets/maps/tiles2.png");
+    this.load.tilemapTiledJSON("map1", "assets/maps/map1.json");
     
     
 },
@@ -110,21 +110,28 @@ create: function() {
     //MAP
     
             //load map and tileset
-    const map = self.make.tilemap({key:"collisionTest"});
-    const tileset = map.addTilesetImage("tiles", "tiles");
+    const map = self.make.tilemap({key:"map1"});
+    const tileset = map.addTilesetImage("tiles2", "tiles2");
     
         //load layers
             //ground layers
     const worldLayer = map.createStaticLayer("World", tileset, 0, 0);
+    const StaticObjectsLayer = map.createStaticLayer("StaticObjects", tileset, 0, 0);
             //collision layers
     self.collisionLayer = map.createStaticLayer("Collision", tileset, 0, 0);
             //object layers
     var objectsLayer = map.getObjectLayer("Objects");
-    
+
+     
             //get objects, send to a function in maps.js
     Object.keys(objectsLayer.objects).forEach(function (key) {
-        var currentObject = objectsLayer.objects[key]
+
+        console.log(objectsLayer.objects);
+        var currentObject = objectsLayer.objects[key];
+
+        console.log(currentObject);
         addMapObject(currentObject, map, worldLayer);
+
     });
     
     //tell the game we want every tile to have variable collision
@@ -200,7 +207,9 @@ create: function() {
       self.otherPlayers.getChildren().forEach(function (otherPlayer) {
         if (playerInfo.playerId === otherPlayer.playerId) {
               var message = playerInfo.message;
-              //console.log("message is" + message);
+              console.log(playerInfo);
+              console.log(playerInfo.message);
+              console.log(message);
                 if(otherPlayer.message == null){
                    otherPlayer.message = self.add.text(playerInfo.x - 16, playerInfo.y - 85, message, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
                        

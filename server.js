@@ -13,7 +13,7 @@ var players = {};
 
 
 
-app.use( '/programming/sburb2', express.static(__dirname + '/public'));
+app.use( '/games/sburb', express.static(__dirname + '/public'));
  
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -50,7 +50,7 @@ io.on('connection', function (socket) {
   
       // when a player moves, update the player data
     socket.on('playerMovement', function (movementData) {
-      console.log(movementData);
+      //console.log(movementData);
       players[socket.id].x = movementData.x;
       players[socket.id].y = movementData.y;
       players[socket.id].rotation = movementData.rotation;
@@ -63,7 +63,7 @@ io.on('connection', function (socket) {
 
         // when a player sends a new message
     socket.on('messageSend', function (message) {
-      console.log(message);
+      //console.log(message);
       // Allow only a super restricted set of tags and attributes
       var cleanMessage = sanitizeHtml(message.message, {
               allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
@@ -73,7 +73,10 @@ io.on('connection', function (socket) {
               allowedIframeHostnames: ['www.youtube.com']
             });
 
+      cleanMessage = cleanMessage.replace(/(.{1,30})/g, '$1<br/>')
+
       players[socket.id].message = cleanMessage;
+      console.log(cleanMessage);
       // emit a message to all players about the player that moved
       socket.broadcast.emit('messageRecieve', players[socket.id]);
     });

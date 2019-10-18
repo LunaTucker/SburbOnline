@@ -13,7 +13,7 @@ var config = {
   physics: {
         default: 'arcade',
         arcade: {
-            debug: true
+            debug: false
         }
     },
     scene:[Main, UI]
@@ -66,23 +66,28 @@ function clientMessage(message){
 
 function sendChatMessage (message) {
    var message = document.getElementById("message").value;
+   var clientmessage;
 
    if(message != null){
 
     //first sanitization 
     message = DOMPurify.sanitize(message, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
-
+    clientmessage = message;
+    clientmessage.replace(/(.{1,30})/g, '$1\n');
+    
         //check the message length
-       if(message.length < 100){
+       if(message.length < 120){
+
         if(self.player.message == null){
             //add a text object if we don't have one
-            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, message, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;              
+            self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, clientmessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;              
     }    else{
+
             //else just update the text object
-            self.player.message.setText(message);
+            self.player. tempmessage.setText(clientmessage);
        }
     //show the message in chatbox
-    $(".chat ul").append("<li>" + self.player.username.text + ": " + message + "</li>");
+    $(".chat ul").append("<li>" + self.player.username.text + ": " + clientmessage + "</li>");
 
     //scroll the chat down
     chatDiv.scrollTop = chatDiv.scrollHeight;
