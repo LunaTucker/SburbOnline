@@ -1,0 +1,116 @@
+{
+    "anims": [
+        {
+            "key": "horuss_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "horuss_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "horuss_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "horuss_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "horuss_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_down_walk1"
+                },
+                {
+                    "key": "horuss",
+                    "frame": "horuss_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "horuss_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_up_walk1"
+                },
+                {
+                    "key": "horuss",
+                    "frame": "horuss_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "horuss_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_left_walk1"
+                },
+                {
+                    "key": "horuss",
+                    "frame": "horuss_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "horuss_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "horuss",
+                    "frame": "horuss_right_walk1"
+                },
+                {
+                    "key": "horuss",
+                    "frame": "horuss_right_walk2"
+                }
+            ]
+        }
+    ]
+}

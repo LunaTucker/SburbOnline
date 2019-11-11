@@ -75,11 +75,8 @@ function sendChatMessage (message) {
     //first sanitization 
     message = DOMPurify.sanitize(message, {SAFE_FOR_JQUERY: true, FORBID_TAGS: ['img']});
 
-    console.log(message);
     var chatmessage = message.replace(/(.{30})/g, "$1<br>");;
-        console.log(chatmessage);
     var gamemessage = message.replace(/(.{30})/g, "$1\n");
-        console.log(gamemessage);
 
         //check the message length
        if(message.length < 301){
@@ -227,7 +224,7 @@ function addPlayer(self, playerInfo, collisionLayer) {
   //set the depth
             self.player.depth = 3;
   //set camera to follow
-            self.cameras.main.startFollow(self.player, true, 0.05, 0.05);  
+            self.cameras.main.startFollow(self.player, true, 1, 1);  
   //default username
             self.player.username = self.add.text(self.player.x - 16, self.player.y - 64, "anon", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });
             self.player.username.depth = 10;
@@ -239,7 +236,7 @@ function addPlayer(self, playerInfo, collisionLayer) {
 //add other players
 function addOtherPlayers(self, playerInfo) {
     var otherPlayer
-    console.log(playerInfo);
+    //console.log(playerInfo);
     otherPlayer = new sburbCharacter(self, playerInfo.x, playerInfo.y, playerInfo.character);
     otherPlayer.player = playerInfo.character;
 
@@ -256,19 +253,16 @@ function addOtherPlayers(self, playerInfo) {
 
     otherPlayer.username = self.add.text(playerInfo.x - 16, playerInfo.y - 80, "anon", { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
     otherPlayer.username.setText(playerInfo.username);
-    console.log(playerInfo); 
+    //console.log(playerInfo); 
 
-    otherPlayer.username.setFill(playerInfo.character.color).setBackgroundColor("#dedede");
-
-    //deal with players who have already been networked
-    if(playerInfo.character.character != undefined){
-        otherPlayer.username.setFill(playerInfo.character.character.color).setBackgroundColor("#dedede");
-    } 
+    console.log(playerInfo);
+    console.log(otherPlayer);
     
     //deal with newly joining players
-    if (playerInfo.character = "none"){
-        otherPlayer.username.setFill("gray");
-
+    if (typeof otherPlayer.player.character == "undefined"){
+        otherPlayer.username.setFill("gray").setBackgroundColor("#dedede");
+    }else{
+      otherPlayer.username.setFill(otherPlayer.player.character.color).setBackgroundColor("#dedede");
     }
 
     otherPlayer.username.depth = 10;

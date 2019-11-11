@@ -1,0 +1,116 @@
+{
+    "anims": [
+        {
+            "key": "john_gt_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_down_walk1"
+                },
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_up_walk1"
+                },
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_left_walk1"
+                },
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "john_gt_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_right_walk1"
+                },
+                {
+                    "key": "john_gt",
+                    "frame": "john_gt_right_walk2"
+                }
+            ]
+        }
+    ]
+}

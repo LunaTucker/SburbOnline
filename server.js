@@ -13,7 +13,7 @@ var players = {};
 
 
 
-app.use( '/games/sburb', express.static(__dirname + '/public'));
+app.use( '/games/sburb_beta', express.static(__dirname + '/public'));
  
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -30,8 +30,8 @@ io.on('connection', function (socket) {
       playerId: socket.id,
       animation: "none",
       frame: "none",
-      username: "none",
-      character: "none"
+      username: "anon",
+      character: "karkat"
     };
     // send the players object to the new player
     socket.emit('currentPlayers', players);
@@ -107,6 +107,6 @@ io.on('connection', function (socket) {
      
 });
 
-server.listen(3000, function () {
+server.listen(3001, function () {
   console.log(`Listening on ${server.address().port}`);
 });

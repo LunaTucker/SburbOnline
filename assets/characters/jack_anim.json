@@ -1,0 +1,116 @@
+{
+    "anims": [
+        {
+            "key": "jack_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "jack_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "jack_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "jack_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "jack_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_down_walk1"
+                },
+                {
+                    "key": "jack",
+                    "frame": "jack_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "jack_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_up_walk1"
+                },
+                {
+                    "key": "jack",
+                    "frame": "jack_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "jack_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_left_walk1"
+                },
+                {
+                    "key": "jack",
+                    "frame": "jack_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "jack_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "jack",
+                    "frame": "jack_right_walk1"
+                },
+                {
+                    "key": "jack",
+                    "frame": "jack_right_walk2"
+                }
+            ]
+        }
+    ]
+}

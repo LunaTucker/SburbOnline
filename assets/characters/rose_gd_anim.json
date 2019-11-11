@@ -1,0 +1,116 @@
+{
+    "anims": [
+        {
+            "key": "rose_gd_down_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_down_idle"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_left_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_left_idle"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_up_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_up_idle"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_right_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_right_idle"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_down_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_down_walk1"
+                },
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_down_walk2"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_up_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_up_walk1"
+                },
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_up_walk2"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_left_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_left_walk1"
+                },
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_left_walk2"
+                }
+            ]
+        },
+        {
+            "key": "rose_gd_right_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_right_walk1"
+                },
+                {
+                    "key": "rose_gd",
+                    "frame": "rose_gd_right_walk2"
+                }
+            ]
+        }
+    ]
+}

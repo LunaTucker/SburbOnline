@@ -12,6 +12,10 @@ Phaser.Scene.call(this,{key:'Main', active: true});
     
 preload: function() { 
 
+      //save the current scene 
+      self = this;
+
+      
 //LOADING SCREEN
     //create the screen
       //box
@@ -52,44 +56,12 @@ this.load.on('complete', function () {
   progressBox.destroy();
 });
 
-  //load every character, each needs a Data json with the animations, a png witht the sprites, and a json atlas for the spritesheet
-    //the atlas name should match the characters name in character.js
-    this.load.animation('karkatData', 'assets/characters/karkat_anim.json');
-    this.load.atlas('karkat', 'assets/characters/karkat.png', 'assets/characters/karkat_atlas.json');
-    
-    this.load.animation('aradiaData', 'assets/characters/aradia_anim.json');
-    this.load.atlas('aradia', 'assets/characters/aradia.png', 'assets/characters/aradia_atlas.json');
 
-    this.load.animation('tavrosData', 'assets/characters/tavros_anim.json');
-    this.load.atlas('tavros', 'assets/characters/tavros.png', 'assets/characters/tavros_atlas.json');
 
-    this.load.animation('solluxData', 'assets/characters/sollux_anim.json');
-    this.load.atlas('sollux', 'assets/characters/sollux.png', 'assets/characters/sollux_atlas.json');
+    //loads all the characters! nicely wrapped into their custom class in 'characters.js'
+    loadCharacters();
 
-    this.load.animation('nepetaData', 'assets/characters/nepeta_anim.json');
-    this.load.atlas('nepeta', 'assets/characters/nepeta.png', 'assets/characters/nepeta_atlas.json');
-
-    this.load.animation('kanayaData', 'assets/characters/kanaya_anim.json');
-    this.load.atlas('kanaya', 'assets/characters/kanaya.png', 'assets/characters/kanaya_atlas.json');
-
-    this.load.animation('tereziData', 'assets/characters/terezi_anim.json');
-    this.load.atlas('terezi', 'assets/characters/terezi.png', 'assets/characters/terezi_atlas.json');
-  
-    this.load.animation('vriskaData', 'assets/characters/vriska_anim.json');
-    this.load.atlas('vriska', 'assets/characters/vriska.png', 'assets/characters/vriska_atlas.json');
-
-    this.load.animation('equiusData', 'assets/characters/equius_anim.json');
-    this.load.atlas('equius', 'assets/characters/equius.png', 'assets/characters/equius_atlas.json');
-
-    this.load.animation('gamzeeData', 'assets/characters/gamzee_anim.json');
-    this.load.atlas('gamzee', 'assets/characters/gamzee.png', 'assets/characters/gamzee_atlas.json');
-
-    this.load.animation('eridanData', 'assets/characters/eridan_anim.json');
-    this.load.atlas('eridan', 'assets/characters/eridan.png', 'assets/characters/eridan_atlas.json');
-
-    this.load.animation('feferiData', 'assets/characters/feferi_anim.json');
-    this.load.atlas('feferi', 'assets/characters/feferi.png', 'assets/characters/feferi_atlas.json');
-
+    //load the map, we'll wrap this up nicely in the future too!
     this.load.image("tiles3", "assets/maps/tiles3.png");
     this.load.tilemapTiledJSON("map2", "assets/maps/map2.json");
     
@@ -98,15 +70,7 @@ this.load.on('complete', function () {
 
 
 create: function() {
-    
-    
-    //save the current scene 
-    self = this;
-    
-    
-    
-    
-    
+  
     //MAP
     
             //load map and tileset
@@ -125,10 +89,8 @@ create: function() {
           StaticObjectsAboveLayer.depth = 4;
             //collision layers
     self.collisionLayer = map.createStaticLayer("Collision", tileset, 0, 0);
-    console.log(self.collisionLayer);
     
     self.objectscollisionLayer = map.createStaticLayer("StaticObjectsCollision", tileset, 0, 0);
-    console.log(self.objectscollisionLayer);
             //dynamic object layers
     var objectsLayer = map.getObjectLayer("Objects");
 

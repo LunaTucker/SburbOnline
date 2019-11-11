@@ -1,5 +1,5 @@
 
-    //array to store playable characters in, used to build  Char. Select Screen
+//array to store playable characters in, used to build  Char. Select Screen
 var playableCharacters = []
 
     //base character class 
@@ -16,7 +16,6 @@ class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
                         
             //set the texture to the character
             this.setTexture(character.name);
-            
             //set up sburb's custom variables 
             this.color = (character.color);
             
@@ -31,7 +30,6 @@ class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
                 this.right_walk = character.right_walk;
                 this.left_walk = character.left_walk;
                 this.up_walk = character.up_walk;
-               
                 
 
     }
@@ -61,13 +59,14 @@ class sburbCharacter extends Phaser.Physics.Arcade.    Sprite{
         //this.play(this.down_idle);
 
    }
-           
+      
+
 }    
-    
-    
+  
+
+
+
 //CHARACTERS//
-
-
 //characters are stored as objects, they will be passed to the sburbCharacter as the properties when a new player chooses them
 
     //KARKAT//
@@ -172,8 +171,7 @@ const nepeta = {
     down_walk: "nepeta_down_walk",
     right_walk: "nepeta_right_walk",
     left_walk: "nepeta_left_walk",
-    up_walk: "nepeta_up_walk"
-
+    up_walk: "nepeta_up_walk",
     
 }
 playableCharacters.push(nepeta);
@@ -318,3 +316,182 @@ const feferi= {
     
 }
 playableCharacters.push(feferi);
+
+
+
+//HUMANS//
+
+
+//JOHN//
+const john = {
+    name: "john",
+
+    color: "#0715cd",
+    
+    //currently required: 4-direction idle, 4-direction walk
+    //currently unused: 4-direction talk, sleep anim
+    down_idle: "john_down_idle",
+    right_idle: "john_right_idle",
+    left_idle: "john_left_idle",
+    up_idle: "john_up_idle",
+    
+    down_walk: "john_down_walk",
+    right_walk: "john_right_walk",
+    left_walk: "john_left_walk",
+    up_walk: "john_up_walk",
+
+    animtype: "template"
+
+}
+playableCharacters.push(john);
+
+//JOHN GODTIER//
+const john_gt = {
+    name: "john_gt",
+
+    color: "#0715cd",
+    
+    //currently required: 4-direction idle, 4-direction walk
+    //currently unused: 4-direction talk, sleep anim
+    down_idle: "john_gt_down_idle",
+    right_idle: "john_gt_right_idle",
+    left_idle: "john_gt_left_idle",
+    up_idle: "john_gt_up_idle",
+    
+    down_walk: "john_gt_down_walk",
+    right_walk: "john_gt_right_walk",
+    left_walk: "john_gt_left_walk",
+    up_walk: "john_gt_up_walk",
+
+    animtype: "template"
+
+}
+playableCharacters.push(john_gt);
+
+//ROSE GRIMDARK//
+const rose_gd = {
+    name: "rose_gd",
+
+    color: "#b536da",
+    
+    //currently required: 4-direction idle, 4-direction walk
+    //currently unused: 4-direction talk, sleep anim
+    down_idle: "rose_gd_down_idle",
+    right_idle: "rose_gd_right_idle",
+    left_idle: "rose_gd_left_idle",
+    up_idle: "rose_gd_up_idle",
+    
+    down_walk: "rose_gd_down_walk",
+    right_walk: "rose_gd_right_walk",
+    left_walk: "rose_gd_left_walk",
+    up_walk: "rose_gd_up_walk",
+
+    animtype: "template"
+
+}
+playableCharacters.push(rose_gd);
+
+//JACK//
+const jack = {
+    name: "jack",
+
+    color: "black",
+    
+    //currently required: 4-direction idle, 4-direction walk
+    //currently unused: 4-direction talk, sleep anim
+    down_idle: "jack_down_idle",
+    right_idle: "jack_right_idle",
+    left_idle: "jack_left_idle",
+    up_idle: "jack_up_idle",
+    
+    down_walk: "jack_down_walk",
+    right_walk: "jack_right_walk",
+    left_walk: "jack_left_walk",
+    up_walk: "jack_up_walk",
+
+    animtype: "template"
+
+}
+playableCharacters.push(jack);
+
+//horuss//
+const horuss = {
+    name: "horuss",
+
+    color: "#000056",
+    
+    //currently required: 4-direction idle, 4-direction walk
+    //currently unused: 4-direction talk, sleep anim
+    down_idle: "horuss_down_idle",
+    right_idle: "horuss_right_idle",
+    left_idle: "horuss_left_idle",
+    up_idle: "horuss_up_idle",
+    
+    down_walk: "horuss_down_walk",
+    right_walk: "horuss_right_walk",
+    left_walk: "horuss_left_walk",
+    up_walk: "horuss_up_walk",
+
+    animtype: "template"
+
+}
+playableCharacters.push(horuss);
+
+//then we add the characters to sets, these group characters for pages of character select
+    //current cap 12
+    const charTrollBeta = [aradia, tavros, sollux, karkat, nepeta, kanaya, terezi, vriska, equius, gamzee, eridan, feferi];
+    const charHuman = [john, john_gt, rose_gd, horuss];
+    const charMisc = [jack, horuss];
+    const charTrollAlpha = [horuss, horuss, horuss, horuss, horuss, horuss, horuss, horuss, horuss, horuss, horuss, horuss]
+
+function loadCharacters(){
+  //load every character, each needs a Data json with the animations, a png witht the sprites, and a json atlas for the spritesheet
+  //the atlas name should match the characters name in character.js
+  playableCharacters.forEach(char => {
+    //loads the character's images and animations when the game begins
+    //note that the names are currently spell and case sensitive
+    self.load.atlas(`${char.name}`, `assets/characters/${char.name}.png`, `assets/characters/${char.name}_atlas.json`);
+    self.load.animation(`${char.name}Data`, `assets/characters/${char.name}_anim.json`);
+
+
+
+
+
+    /*Experiment Failed, Come back to this later*/
+
+    /*
+    if(char.animtype != "template"){
+        //old anim type: saved in an external json
+        self.load.atlas(`${char.name}`, `assets/characters/${char.name}.png`, `assets/characters/${char.name}_atlas.json`);
+
+        self.load.animation(`${char.name}Data`, `assets/characters/${char.name}_anim.json`);
+    }else{
+        //new anim type: created here in Phaser! Eventually will help implement custom stuff
+        self.load.atlas(`${char.name}`, `assets/characters/${char.name}.png`, `assets/characters/${char.name}_atlas.json`);
+
+        console.log(`creating anims for ${char.name}`);
+
+        self.anims.create({
+                key: `${char.name}_down_idle`,
+                frames: [{key: `${char.name}`, frame: `${char.name}_down_idle`}],
+                frameRate: 8,
+                repeat: -1
+        });
+
+        self.anims.create({
+                key: `${char.name}_down_walk`,
+                frames: [{key: `${char.name}`, frame: `${char.name}_down_walk1`}, {key: `${char.name}`, frame: `${char.name}_down_walk2`}],
+                //frames: self.anims.generateFrameNames(`${char.name}`, { prefix: `${char.name}_down_walk`, start: 1, end: 2, zeroPad: 1 }),
+                frameRate: 8,
+                repeat: -1
+                });
+
+        console.log(self.anims);
+        }
+        */
+
+
+
+
+    });
+}
