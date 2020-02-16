@@ -30,26 +30,42 @@
             <div class = "chat">
                <ul>
                    <li>Welcome!</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
+                   <li>-</li>
                </ul>
             </div>
             
+            <div class = "empty"></div>
+            <div class = "empty2"></div>
+            <div class = "empty3"></div>
+            <div class = "empty4"></div>
+            <div class = "empty5"></div>
             
-            
+            <div id = header><img src=assets/ui/sburb.png></div>
+
             <div id = "gameCanvas"></div>
             <script src="js/sburb.js"></script>
 
         <div id = "Input">
-
+            <p>Chat</p>
             <form id = "chatInput">
-                <p>Chat:
+                
                 <input id = "message" type="text" size="20">
-                <button type='button' form ="chat" onclick="sendChatMessage()">Send</button> </p>
+                <button type='button' form ="chat" onclick="sendChatMessage()">Send</button> 
             </form>
             
+            <p> Username</p>
             <form id = "usernameInput">
-                <p> Username:
+
                 <input id = "username" type="text" size="20"> 
-                <button type='button' form="username" onclick="updateUsername()">Update</button> </p>
+                <button type='button' form="username" onclick="updateUsername()">Update</button>
             </form>
 
         </div>

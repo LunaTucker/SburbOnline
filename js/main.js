@@ -61,6 +61,9 @@ this.load.on('complete', function () {
     //loads all the characters! nicely wrapped into their custom class in 'characters.js'
     loadCharacters();
 
+    //load the hitscan texture
+    //note to self: change this for a phaser rectangle object
+    this.load.image("hitscan", "assets/objects/interactbox.png");
     //load the map, we'll wrap this up nicely in the future too!
     this.load.image("tiles3", "assets/maps/tiles3.png");
     this.load.tilemapTiledJSON("map2", "assets/maps/map2.json");
@@ -181,6 +184,9 @@ create: function() {
               var chatmessage = message.replace(/(.{1,30})/g, '$1<br>');
               var gamemessage = message.replace(/(.{1,30})/g, '$1\n');
 
+
+        //// This is the system for the chatbox above your head. It sucks. TODO: Replace with an animated icon when a message is sent. ////
+    /*
                 if(otherPlayer.message == null){
                    otherPlayer.message = self.add.text(playerInfo.x - 16, playerInfo.y - 85, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;
                        
@@ -188,18 +194,23 @@ create: function() {
                    otherPlayer.message.setText(gamemessage);
                    otherPlayer.message.depth = 10;
                 };
-                
+                */
+
                 //update the chatbox
 
                 if (playerInfo.username == undefined){
                   $(".chat ul").append("<li>" + "anon" + ": " + chatmessage + "</li>");
                     //scroll the chat down
-                    chatDiv.scrollTop = chatDiv.scrollHeight;
+                    //chatDiv.scrollTop = chatDiv.scrollHeight;
+                    $('.chat ul').animate({scrollTop: $('.chat ul').prop("scrollHeight")}, 500);
+                    checkOverflow();
 
                 }else {
                   $(".chat ul").append("<li>" + playerInfo.username + ": " + chatmessage + "</li>");
                     //scroll the chat down
-                    chatDiv.scrollTop = chatDiv.scrollHeight;
+                    //chatDiv.scrollTop = chatDiv.scrollHeight;
+                    $('.chat ul').animate({scrollTop: $('.chat ul').prop("scrollHeight")}, 500);
+                    checkOverflow();
 
                 }
                

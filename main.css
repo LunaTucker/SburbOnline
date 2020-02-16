@@ -1,5 +1,6 @@
 body{
-    background-color: #535353
+    background-color: #535353;
+    padding: 0;
 }
 
 
@@ -9,14 +10,20 @@ body{
         justify-items: center;
         
             grid-template-columns: 100%;
-            grid-template-rows: 1fr 200px 1fr 1fr;
+            grid-template-rows: 5fr 250px 2fr 1fr;
             grid-template-areas:
                 "game"
                 "chat"
                 "Input"
-                "footer";
+                "footer"
+                "header";
         min-height: 0;  
         min-width: 0; 
+        width: 95vw;
+
+        margin: auto;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
 /*desktop-only*/
@@ -25,31 +32,94 @@ body{
             display: grid;
             justify-items: center;
 
-                grid-template-columns: 1fr 2fr 1fr;
-                grid-template-rows: 600px 1fr 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows:  1fr 450px 1fr 1fr;
                 grid-template-areas:
-                    "chat game ."
-                    "Input . ."
-                    ".  . ."
-                    ".  desc ."
+                    "empty header empty2"
+                    "chat game empty3"
+                    "empty4 Input  empty5"
                     "footer footer footer";
-            min-height: 0;  
-            min-width: 0; 
+            width: 100vw;
+            height: 95vh;
+            max-width: 65%;
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: 0;
+                    
+        }
+        .chat ul{
+            overflow:hidden; 
+            overflow-y:scroll;
+            min-height: 20%;
+            max-height: 90%;
+            margin: 0;
+            padding: 0;
         }
     }
+
     
+.empty{
+    grid-area: empty;
+    background-color: #C6C6C6;
+    width: 100%;
+
+}
+.empty2{
+    grid-area: empty2;
+    background-color: #C6C6C6;
+    width: 100%;
+
+}
+.empty3{
+    grid-area: empty3;
+    background-color: #C6C6C6;
+    width: 100%;
+
+}
+
+.empty4{
+    grid-area: empty4;
+    background-color: #C6C6C6;
+    width: 100%;
+
+}
+
+.empty5{
+    grid-area: empty5;
+    background-color: #C6C6C6;
+    width: 100%;
+
+}
+
+
+#header{
+    grid-area: header;
+    background-color: #C6C6C6;
+    font-size: 2em;
+    width: 100%;
+    justify-content: center;
+
+}
+
+#header img{
+    max-height: 75%;
+    display: block;
+    margin: auto;
+
+}
+
 .chat {
     grid-area: chat;
-    margin-left: 1em;
-    border-radius: 2em;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    max-height: 100%;
+    background-color: #C6C6C6;
 }
 
 .chat ul{
-    overflow: auto;
-    max-height: 90%;
+    overflow:hidden; 
+    overflow-y: auto;
+    width: 100%;
+    max-height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -72,23 +142,35 @@ body{
 
 #gameCanvas {
     grid-area: game;
-    background-color:#C6C6C6;
+    background-color: #EFEFEF;
     max-width: 100%;
+    margin: 0;  
+
 }
 
 #Input {
     grid-area: Input;
-    
+    width: 100%;
+    background-color: #EFEFEF;
+    text-align: center;
+}
+
+#Input p{
+    color: grey;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
 }
 
 #chatInput {
-    color: red;
-    padding: .3em;
+
+    justify-content: right;
 }
 
 #usernameInput{
-    color: green;
-    padding: .3em;
+
+    justify-content: left;
+    margin-bottom: 1em;
 }
 
 footer {

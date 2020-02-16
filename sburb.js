@@ -58,14 +58,6 @@ var sanitizeHTML = function (str) {
 
 //chat functions
 
-
-//check if the chatbox is full, delete the oldest message if it is. this can be adjusted
-function checkOverflow(){
-    if ( $('.chat ul li').length > 100 ) {
-        $('.chat ul li:first-child').remove();
-        }
-    }
-
     //send message only to self
 function clientMessage(message){
     $(".chat ul").append("<li>" + "SYSTEM: " + message + "</li>");
@@ -77,9 +69,7 @@ function clientMessage(message){
 function sendChatMessage (message) {
     //message is sent from the server, chatmessage is used for the chatbar, gamemessage displays over your character
     var message = document.getElementById("message").value;  
-    //clear the message when we're done with it
-    document.getElementById("message").value = '';
-
+  
     if(message != null){
 
     //first sanitization 
@@ -91,10 +81,6 @@ function sendChatMessage (message) {
         //check the message length
        if(message.length < 301){
 
-
-
-        //// This is the system for the chatbox above your head. It sucks. TODO: Replace with an animated icon when a message is sent. ////
-    /*
         if(self.player.message == null){
             //add a text object if we don't have one
             self.player.message = self.add.text(self.player.x - 16, self.player.y - 64, gamemessage, { fontFamily: 'Verdana, "Times New Roman", Tahoma, serif' });;        
@@ -104,14 +90,11 @@ function sendChatMessage (message) {
             //else just update the text object
             self.player.message.setText(gamemessage);
        }
-    */
     //show the message in chatbox
     $(".chat ul").append("<li>" + self.player.username.text + ": " + chatmessage + "</li>");
-    $('.chat ul').animate({scrollTop: $('.chat ul').prop("scrollHeight")}, 500);
 
     //scroll the chat down
-    //chatDiv.scrollTop = chatDiv.scrollHeight;
-    checkOverflow();
+    chatDiv.scrollTop = chatDiv.scrollHeight;
 
     //send the message to the server
      self.socket.emit('messageSend', {message}); 
@@ -123,8 +106,6 @@ function sendChatMessage (message) {
 
 function updateUsername (username) {
    var username = document.getElementById("username").value;
-    //clear the message when we're done with it
-    document.getElementById("username").value = '';
    if(username != null) {
 
     //first sanitization 
@@ -148,6 +129,7 @@ function updateUsername (username) {
 function movePlayer(player, playerPrefix) {
    //reset the velocity 
    player.setVelocity(0);
+   
    
    //MOVEMENT//
    
@@ -206,7 +188,6 @@ function movePlayer(player, playerPrefix) {
         }
     }
     
-    self.player.hitscan.setPosition(player.x,player.y);
 }
 
 
@@ -234,8 +215,6 @@ function addPlayer(self, playerInfo, collisionLayer) {
     self.player = new sburbCharacter(self, randomX, randomY, karkat);
  
   //set the collision
-
-
             self.player.setCollideWorldBounds(true);
             self.physics.add.collider(self.player, self.objectscollisionLayer);
             self.physics.add.collider(self.player, self.collisionLayer);
@@ -244,8 +223,8 @@ function addPlayer(self, playerInfo, collisionLayer) {
             self.player.body.setOffset(self.player.width * 0.25, self.player.height * 0.70);
 
     //create our custom hitscan for interactions
-            self.player.hitscan = self.physics.add.image(randomX, randomY, 'hitscan').setCollideWorldBounds(true).setOrigin(0.5,0);
-
+            self.player.hitscan = this.physics.add.image(randomX, randomY, 'hitscan').setCollideWorldBounds(true);
+    
   //set the depth
             self.player.depth = 3;
   //set camera to follow

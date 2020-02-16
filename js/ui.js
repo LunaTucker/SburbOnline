@@ -207,11 +207,11 @@ function displayCharacters(set, characterSelect){
           Phaser.Actions.GridAlign(csCharacters.getChildren(), {
             width: 6,
             height: 2,
-            cellWidth: 128,
-            cellHeight: 128,
+            cellWidth: 90,
+            cellHeight: 90,
             position: Phaser.Display.Align.BOTTOM_CENTER,
-            x: characterSelect.x * - 0.80,
-            y: characterSelect.y * - 0.55
+            x: characterSelect.x * - 0.70,
+            y: characterSelect.y * - 0.35
         });
 
 }
@@ -240,6 +240,16 @@ function settingsMenu(){
 
     });
 
+        //Patreon
+            let setWindow3 = uiScene.add.sprite(0,0, 'characters3').setInteractive({pixelPerfect: true});
+            //focus on menu when clicked
+            setWindow3.on('pointerdown', function(){
+                settingsContainer.bringToTop(setWindow3);
+                settingsContainer.bringToTop(closeButton);
+                showPatreon(settingsContainer);
+    
+        });
+
         //CLOSE
         let closeButton = uiScene.add.sprite(0, 175, 'close').setInteractive({pixelPerfect: true});
         //focus on menu when clicked
@@ -251,6 +261,7 @@ function settingsMenu(){
         //add the windows to the container
         settingsContainer.add(setWindow1);
         settingsContainer.add(setWindow2);
+        settingsContainer.add(setWindow3);
         settingsContainer.add(closeButton);
         //display the first window on top
         settingsContainer.bringToTop(setWindow1);
@@ -295,4 +306,21 @@ function showCredits(window){
       var credit3 = self.add.text(-300, 75, 'Homestuck Discord Mod Team - Various Asset Ripping and Spriting', { fontFamily: `Courier, Courier New`, fontSize: 16, color: '#696969'});
       window.add(credit3);
       window.bringToTop(credit3);   
+}
+
+function showPatreon(window){
+        //title
+      var title = self.add.text(-300, -150, 'Patreon', { fontFamily: `Courier, Courier New`, fontSize: 56, color: '#696969'});
+      window.add(title);
+      window.bringToTop(title);
+      //donors
+      var credit1 = self.add.text(-300, -85, '  My Patreon is for my personal art, Homestuck content \n is not paywalled. \n\n  However, your support keeps me and the servers alive! \n\n   You can also check it out for a feed of my other \n non-Homestuck endeavors c: \n      Thank you for your support! \n      patreon.com/lunatucker', { fontFamily: `Courier, Courier New`, fontSize: 16, color: '#696969'});
+      window.add(credit1);
+      window.bringToTop(credit1); 
+      var credit2 = self.add.text(-300, 25, '\n\n ----- \n cyberKinetist \n Elizabeth Gotski \n takenUsername', { fontFamily: `Courier, Courier New`, fontSize: 16, color: '#696969'});
+      window.add(credit2);
+      window.bringToTop(credit2); 
+      var credit3 = self.add.text(-300, 120, '  This page is not automated yet, so let me know if \n you have donated and not been added!', { fontFamily: `Courier, Courier New`, fontSize: 16, color: '#696969'});
+      window.add(credit3);
+      window.bringToTop(credit3);  
 }
